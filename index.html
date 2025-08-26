@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#111111" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png">
+  <title>Лилит — Древний Египет (Интерактивная история)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Лилит: Пески и Тени</h1>
+      <button id="btn-menu" aria-label="Меню" title="Меню">☰</button>
+    </header>
+
+    <main id="scene">
+      <div id="text"></div>
+      <div id="choices"></div>
+    </main>
+
+    <footer>
+      <button id="btn-back" disabled>⟵ Назад</button>
+      <button id="btn-restart">Начать заново</button>
+      <button id="btn-save">Сохранить</button>
+      <button id="btn-load">Загрузить</button>
+    </footer>
+  </div>
+
+  <div id="menu" class="sheet hidden" role="dialog" aria-modal="true">
+    <div class="sheet-inner">
+      <h2>Меню</h2>
+      <p><strong>Героиня:</strong> Лилит</p>
+      <p><strong>Сеттинг:</strong> Древний Египет • боги • мистика</p>
+      <button id="btn-close">Закрыть</button>
+    </div>
+  </div>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(console.error);
+      });
+    }
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>
